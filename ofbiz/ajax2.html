@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+
+				var webServiceURL = 'http://localhost/ofbiz/';
+
+				$("button").click(function() {
+					CallService('getCategorie.php');
+				});
+				$("select").change(function() {
+					$("select option:selected").each(function() {
+						data = {
+								id:$("select option:selected").attr('value')
+						}
+						CallService('getProduct.php',data);
+					});
+				}).trigger("change");
+				$(document).on('click','.prod',function(){
+					$("table").remove();
+					data={
+							id:$(this).attr('id')
+					}
+					CallService('getColor.php',data);
+				});
+				function CallService(service,data) {
+					$.ajax({
+
+						url : webServiceURL+service,
+						type : "POST",
+						data : data,
+						dataType : "json",
+						success : OnSuccess,
+						error : OnError,
+						context : {service:service}
+						
+					});
+					return false;
+				}
+
+				function OnSuccess(data, status) {
+					console.log(data);
+					if(this.service=="getCategorie.php"){
+						for (i = 0; i < data.length; i++) {
+							$("select").append(
+									'<option value="'+data[i]['id']+'">'
+											+ data[i]['name'] + '</option>');
+						}
+					}else if(this.service=='getColor.php'){
+						$("body").append($("<table>").append($("<tr>").append($("<td>"))));
+						for(i=0;i<data.length;i++){
+							$("td").append($("<button>",{text: data[i]['couleur']}));
+						}
+					}
+					else{
+						for(i=0;i<data.length;i++){
+							$("body").append($("<button>",{id:data[i]['codeArticle'],class:'prod'}).append($("<label>",{text:data[i]['article']}),$("<img>",{src:data[i]['url']}))).trigger("create");
+						}
+					}
+				}
+
+				function OnError(request, status, error) {
+					console.log(error);
+				}
+				
+			});
+</script>
+</head>
+<body>
+	<select></select>
+	<button></button>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" 
+	content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+<meta name="viewport"
+	content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" href="jqueryMobile/jquery.mobile-1.4.0.min.css">
+
+<script src="jqueryMobile/jquery-1.10.2.min.js"></script>
+<script src="jqueryMobile/jquery.mobile-1.4.0.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+<title>POS</title>
+</head>
+<body class="dt-example">
+
+
+			
+	<!-----------------------------page home ----------------------------------------------- -->
+
+
+<div data-role="page" id="home">
+		<div data-role="header" data-position="fixed">
+			<a href="#ipPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+		  <h1>logo</h1>
+			<a href="#authentification" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">panier</a>
+  </div>
+		<div data-role="content">
+			<div data-role="panel" id="ipPanel" id="overlayPanel" data-display="overlay">
+				<div data-role="content">
+					<label for="ip">Server</label> <input type="text" placeholder="localhost" id="ip"> <a href="#" id="localip" class="ui-btn  ui-corner-all">Submit</a>
+                    
+				</div>
+	  </div>
+</div>
+		<img src="img/dcpos_white.png" width="100%" height="348" alt="" />
+		<table width="100%">
+			<tr>
+				<td><p>connecter vous dans POS</p></td>
+				<td><a href="#authentification" class="ui-btn">sign in</a></td>
+			</tr>
+			<tr>
+				<td><p>enregister vous dans POS</p></td>
+				<td><a href="#enregistrement" class="ui-btn">register</a></td>
+			</tr>
+		</table>
+<div data-role="footer" data-position="fixed">
+			<h4>designed & developed by TAM & SQL</h4>
+		</div>
+	</div>
+
+
+	<!-----------------------------page authentification ----------------------------------------------- -->
+
+
+<div data-role="page" id="authentification">
+		<div data-role="header" data-position="fixed">
+			<h1>logo</h1>
+		</div>
+		<div data-role="content">
+			<div data-role="popup" id="false" class="ui-content">
+				<p>votre email/mot de pass est incorrect</p>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+			</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn-active">sign in</a></li>
+					<li><a href="#enregistrement">register</a></li>
+				</ul>
+			</div>
+			<table width="100%">
+				<tr>
+					<td>login</td>
+					<td><input type="text" id="login" value=""></td>
+				</tr>
+				<tr>
+					<td>pass</td>
+					<td><input type="password" id="pass" value=""></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button class="ui-btn ui-btn-b" id="connexion">Sign
+							in</button></td>
+				</tr>
+
+			</table>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<a href="#home" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">back</a>
+		</div>
+	</div>
+
+
+	<!-------------------------page enregistrement ----------------------------------------------- -->
+
+
+<div data-role="page" id="enregistrement">
+		<div data-role="header" data-position="fixed">
+			<h1>logo</h1>
+  </div>
+		<div data-role="content">
+			<div data-role="popup" id="falsepass" class="ui-content">
+				<p>les mots de pass non identiques</p>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+		  </div>
+		  <div data-role="popup" id="success" class="ui-content">
+				<p>bienvenu</p>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">ok</a>
+		  </div>
+		  <div data-role="popup" id="failed" class="ui-content">
+				<p>mail invalid</p>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-rel="back">Go Back</a>
+		  </div>
+		  <div data-role="navbar">
+				<ul>
+					<li><a href="#authentification">sing in</a></li>
+					<li><a href="#">regiter</a></li>
+				</ul>
+		  </div>
+			<table width="100%">
+				<tr>
+					<td>Nom</td>
+					<td><input type="text" name="nom" id="nom"></td>
+				</tr>
+				<tr>
+					<td>Prenom</td>
+					<td><input type="text" name="prenom" id="prenom"></td>
+				</tr>
+				<tr>
+					<td>mail</td>
+					<td><input type="text" name="mail" id="mail"></td>
+				</tr>
+				<tr>
+					<td>pass</td>
+					<td><input type="password" name="pass" id="mpass"></td>
+				</tr>
+				<tr>
+					<td>RePass</td>
+					<td><input type="password" id="repass"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><button class="ui-btn ui-btn-b" id="validation">Register</button></td>
+				</tr>
+			</table>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		  <a href="#home" class="ui-btn ui-icon-arrow-l ui-btn-icon-left">back</a>
+		</div>
+</div>
+
+
+	<!-------------------------page categories ----------------------------------------------- -->
+
+
+<div data-role="page" id="categories">
+		<div data-role="header">
+			<a href="#userconfig" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+			<h1>logo</h1>
+			<a href="#panier" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">Panel</a>
+		</div>
+		<div data-role="content">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#listProduit" data-role="button" id="ListProducts">List Produits</a>
+				<a href="#pageClient" data-role="button" id="ListClients">List Clients</a>
+			</div>
+			<br>
+		  <form class="ui-filterable">
+				<input id="myFilter" data-type="search">
+			</form>
+			<ul data-role="listview" id="cat" data-filter="true"
+				data-input="#myFilter" data-autodividers="true" data-inset="true">
+			</ul>
+  </div>
+		<div data-role="footer" data-position="fixed">
+			<h4>Categories</h4>
+		</div>
+</div>
+
+
+	<!-------------------------page products ----------------------------------------------- -->
+
+
+<div data-role="page" id="products">
+		<div data-role="header">
+			<a href="#userconfig" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+			<h1>logo</h1>
+			<a href="#panier" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">Panel</a>
+		</div>
+		<h4 style="margin-left: 12px;" id="slectedCat"></h4>
+		<div id="prod" data-role="content"></div>
+		<div data-role="footer" data-position="fixed">
+			<a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-rel="back">categories</a>
+			
+  </div>
+</div>
+
+
+	<!-------------------------page product ----------------------------------------------- -->
+
+
+<div data-role="page" id="product">
+		<div data-role="header">
+			<a href="#userconfig" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+			<h1>logo</h1>
+			<a href="#panier" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">Panel</a>
+		</div>
+
+		<div id="produit" data-role="content">
+			<table width="100%">
+				<tr>
+					<td><img src="" id="imgProd" width="120px" height="130px"></td>
+					<td><h4 id="slectedProd"></h4> <br> <label id="codeProd"></label></td>
+				</tr>
+				<tr>
+					<td>
+					  <fieldset class="ui-field-contain">
+							<label for="colorProd">Select Color</label> 
+						<select name="colorProd" id="colorProd">
+
+							</select>
+						</fieldset>
+				  </td>
+					<td>
+						<table data-role="table" id="DetailProd" class="ui-responsive ui-corner-all table-stripe ">
+							<thead>
+								<tr>
+									<th data-priority="1">Taille/Pointure</th>
+									<th data-priority="1">Px Vente</th>
+									<th data-priority="3">Px Solde</th>
+									<th data-priority="1">En stock</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+					  <div data-role="controlgroup" data-type="horizontal">
+							<a href="#" class="ui-btn Pcancel" id="validProd">valide</a> 
+							<a href="#product" class="ui-btn Pcancel" data-rel="back">cancel</a>
+						</div>
+				  </td>
+				</tr>
+			</table>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left Pcancel" data-rel="back">produits</a>
+		</div>
+
+	</div>
+	
+	
+	<!-------------------------page listProduit ----------------------------------------------- -->
+
+
+<div data-role="page" id="listProduit">
+		<div data-role="header">
+			<a href="#userconfig" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+			<h1>logo</h1>
+			<a href="#panier" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">Panel</a>
+		</div>
+		<div data-role="content">
+			<table data-role="table" id="ProdList" class="ui-responsive ui-corner-all table-stripe ">
+				<thead>
+					<tr>
+						<th data-priority="1">codeArticle</th>
+						<th data-priority="1">article</th>
+						<th data-priority="3">prix</th>
+						<th data-priority="1">solde</th>
+						<th data-priority="1">stock</th>
+					</tr>
+				</thead>
+				<tbody id="bodyProd">
+				</tbody>
+			</table>
+			<div style="display: inline" data-role="controlgroup" data-type="horizontal">
+				<a href="#product" class="ui-btn Lcancel" id="ProdValid">valide</a> 
+				<a href="#categories" class="ui-btn Lcancel" data-rel="back">cancel</a>
+			</div>
+			<div style="display: inline">
+				<img id="ProdImg">
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left Lcancel" data-rel="back">Categories</a>
+			</div>
+		</div>
+	</div>
+
+
+		<!-------------------------page listclient ----------------------------------------------- -->
+
+
+	<div data-role="page" id="pageClient">
+		<div data-role="header">
+			<a href="#userconfig" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+			<h1>logo</h1>
+			<a href="#panier" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">Panel</a>
+		</div>
+		<div data-role="content">
+			<table data-role="table" id="ClientList" class="ui-responsive ui-corner-all table-stripe " data-sortable="true">
+				<thead>
+					<tr>
+						<th data-priority="1">Num enregistrement</th>
+						<th data-priority="1">Nom/prenom</th>
+						<th data-priority="3">TEL</th>
+						<th data-priority="1">Nun CB</th>
+						<th data-priority="1">CIN</th>
+					</tr>
+				</thead>
+				<tbody id="bodyClient">
+				</tbody>
+			</table>
+			<div style="display: inline" data-role="controlgroup" data-type="horizontal">
+				<a href="#categories" class="ui-btn LCcancel" id="ClientValid">valide</a> 
+				<a href="#categories" class="ui-btn LCcancel" data-rel="back">cancel</a>
+			</div>
+			<div style="display: inline">
+				<img id="ClientImg">
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left LCcancel" data-rel="back">Categories</a>
+			</div>
+		</div>
+	</div>
+    
+    <!--<div data-role="popup" id="attente" data-theme="a">
+    	<div data-role="header" class="ui-header ui-bar-inherit">
+    		<h1 class="ui-title" role="heading" aria-level="1">Ticket en attente</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+        
+                	<a href="#" data-rel="popup" data-position-to="window" data-transition="fade" class="ui-btn ui-btn-b ui-btn-icon-left ui-icon-shop ui-btn-inline">Espece</a>
+                    
+            
+          </div>
+         </div>-->
+         <!-------------------------page cloture ----------------------------------------------- -->
+   <div data-role="page" id="pageCloture">
+		<div data-role="header">
+			<a href="#userconfig" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
+			<h1>logo</h1>
+			<a href="#panier" class="ui-btn ui-corner-all ui-icon-grid ui-btn-icon-notext">Panel</a>
+		</div>
+		<div data-role="main" class="ui-content">
+			<table data-role="table" id="ClotureList" class="ui-responsive ui-corner-all table-stripe " >
+				<thead>
+					<tr>
+						<th data-priority="1" id="tdate">Ticket</th>
+						<th data-priority="1">TTC</th>
+						<th data-priority="1">client</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+                <tfoot>
+            
+                	<tr>
+                    	<td>
+                	<a href="#"  data-transition="fade" class="ui-btn ui-btn-b ui-btn-icon-left ui-icon-shop ui-btn-inline" id="vArticle">Voir Article</a>
+                    </td>
+                    <td>
+                    <a href="#"   data-transition="fade" class="ui-btn ui-btn-b ui-btn-icon-left ui-icon-shop ui-btn-inline" id="vReglement">Voir Reglement</a>
+                    </td>
+                    <td>
+                    <a href="#"   data-transition="fade" class="ui-btn ui-btn-b ui-btn-icon-left ui-icon-shop ui-btn-inline" id="clotureJ">Cloturer Journée</a>
+                    </td>
+                    </tr>
+                </tfoot>
+			</table>
+            
+     <div data-role="popup" id="vpanier" data-display="overlay" data-position="right" data-theme="a">
+    	<div data-role="main" class="ui-content">
+            <table data-role="table" id="vpanierProd" class="ui-responsive ui-table ui-table-reflow ui-body-a table-stripe">
+            <thead>
+            	<tr>
+                	<th data-priority="1">Code</th>
+                    <th data-priority="1">Qte</th>
+                    <th data-priority="1">P.V.</th>
+                    <th data-priority="1" class="ui-body-c">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            	<tr>
+                    <td colspan="4">
+                   		 <label for="vtotal">Total Price :</label>
+                    	 <div class="ui-input-text ui-corner-all  ui-shadow-inset ui-body-b">
+                   			<input type="text" name="vtotal" id="vtotal" disabled="true" value="" data-role="none">
+               			</div> 
+                    </td>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+    </div>
+    <div data-role="popup" id="vfacture" data-display="overlay" data-position="right" data-theme="a">
+    	<div data-role="main" class="ui-content">
+            <table data-role="table" id="vreglement" class="ui-responsive ui-table ui-table-reflow ui-body-a table-stripe">
+            <thead>
+            	<tr>
+                	<th data-priority="1">Ticket</th>
+                    <th data-priority="1">Nom du tier</th>
+                    <th data-priority="1">Date</th>
+                    <th data-priority="1">Mode</th>
+                    <th data-priority="1">Montant</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            	<tr>
+                    <td colspan="5">
+                   		 <label for="rtotal">Reglement Total :</label>
+                    	 <div class="ui-input-text ui-corner-all  ui-shadow-inset ui-body-b">
+                   			<input type="text" name="rtotal" id="rtotal" disabled="true" value="" data-role="none">
+               			</div> 
+                    </td>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div data-role="popup" id="fincloture" data-display="overlay" data-position="right" data-theme="a" data-overlay-theme="b">
+    	<div data-role="main" class="ui-content">
+            <table data-role="table" id="fcloture" class="ui-responsive ui-table ui-table-reflow ui-body-a table-stripe">
+            
+            <thead>
+            	<tr>
+                	<th>Clôture de la caisse</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr>
+                	<td>
+                    	<label for="minitial">Montant initial</label>
+                    	 <div class="ui-input-text ui-corner-all  ui-shadow-inset ui-body-b">
+                   			<input type="text" name="minitial" id="minitial" disabled="true" value="" data-role="none">
+               			</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    	<label for="mvente">Montant vente</label>
+                    	 <div class="ui-input-text ui-corner-all  ui-shadow-inset ui-body-b">
+                   			<input type="text" name="mvente" id="mvente" disabled="true" value="" data-role="none">
+               			</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    	<label for="mretrait">Montant retrait</label>
+                   		<input type="text" name="mretrait" id="mretrait" value="">
+                    </td>
+                </tr>
+               	<tr>
+                    <td>
+                    	<label for="mrestant">Montant Restant</label>
+                    	 <div class="ui-input-text ui-corner-all  ui-shadow-inset ui-body-b">
+                   			<input type="text" name="mrestant" id="mrestant" disabled="true" value="" data-role="none">
+               			</div>
+
+
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+            	<tr>
+                    <td>
+                   		<a href="#" data-rel="popup"  data-position-to="window" data-transition="fade" class="ui-btn ui-body-c ui-btn-icon-left ui-icon-check" id="defcloture">CLOTURER</a>
+                    </td>
+                </tr>
+            </tfoot>
+            </table>
+        </div>
+        
+    </div>
+    
+   
+    <div data-role="popup" id="verifCloture" data-display="overlay" data-overlay-theme="b">
+      <div data-role="header">
+        <h1>Attention !</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+        <h3>Le cloture est déja effectué</h3>
+        <h3>Vous voulez l'écraser ?</h3>
+        <div style="text-align:center;">
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete ui-btn-icon-left" id="OCloture">Oui</a>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a ui-icon-back ui-btn-icon-left" data-rel="back">Non</a>
+        </div>
+      </div>
+
+      <div data-role="footer">
+      </div>
+    </div>  
+    
+    
+      
+		
+		</div>
+        <div data-role="footer" data-position="fixed">
+				<a href="#" class="ui-btn ui-icon-arrow-l ui-btn-icon-left Lcancel" data-rel="back">Categories</a>
+		</div>
+         
+        
+        
+	</div>
+    
+    
+    
+    
+</body>
+</html>

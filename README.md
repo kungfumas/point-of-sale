@@ -1,2 +1,2 @@
 # point-of-sale
-Mobile application using Apache cordova
+Mobile application using Apache Cordova

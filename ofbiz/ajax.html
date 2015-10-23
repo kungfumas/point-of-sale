@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	var webServiceURL = 'http://localhost/ofbiz/getCategorie.php';
+	
+	$("button").click(function(){
+		CallService();
+	});
+	
+    function CallService()
+    {
+        $.ajax({
+			
+            url: webServiceURL, 
+            type: "POST",
+            data: {}, 
+            dataType: "json",
+            success: OnSuccess, 
+            error: OnError
+        });
+        return false;
+    }
+
+    function OnSuccess(data, status)
+    {
+        console.log(data);
+		for(i=0;i<data.length;i++){
+			
+			$("select").append('<option value="'+data[i]['id']+'">'+data[i]['name']+'</option>');
+		}
+		p = data;
+		$("input").val(p);
+    }
+
+    function OnError(request, status, error)
+    {
+        console.log(error);
+    }
+});
+</script>
+</head>
+<body>
+<button value="Test">Test</button>
+<select>
+	
+</select>
+</body>
+</html>
